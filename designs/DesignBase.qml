@@ -194,6 +194,8 @@ Item {
   property bool snapshotHideClock: false
   readonly property bool hideTime: snapshotMode && snapshotHideClock
   property Item inputItem: null
+  // False on screens that only show the design, not the sign-in (see Rain).
+  property bool showInputField: true
   property bool shakeOnFail: false
   property bool flashOnFail: true
 

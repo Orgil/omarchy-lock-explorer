@@ -71,6 +71,9 @@ DesignBase {
     width: box.implicitWidth + 80
     height: box.implicitHeight + 64
     radius: 6
+    // Only the sign-in screen shows the panel. Opacity, not visible, so the
+    // hidden password field still takes typing if focus lands on this screen.
+    opacity: lock.showInputField === false ? 0 : 1
     color: Qt.rgba(0, 0, 0, 0.72)
     border.width: 1
     border.color: lock.withAlpha(Commons.Color.lock.borderActive, 0.6)
@@ -106,6 +109,7 @@ DesignBase {
         outlineThickness: 1
         color: Qt.rgba(0, 0, 0, 0.6)
         placeholder: "follow the white rabbit"
+        opacity: lock.showInputField === false || lock.snapshotBare === true ? 0 : 1
       }
     }
   }

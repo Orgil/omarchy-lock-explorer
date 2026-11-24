@@ -3862,12 +3862,15 @@ echo "$out"
         duration: root.unlockDuration
         active: root.unlocking
         backgroundUrl: root.locked && !root.sessionLockXray ? root.backgroundUrl : ""
+        // Only the picture screen shows the wallpaper at unlock; the others fade to one solid color.
+        solidOnly: !!lockSurface.screen && lockSurface.screen.name !== "DP-2"
 
         LockHost {
           id: lockView
           anchors.fill: parent
           fadeIn: true
-          designId: root.showsInput(lockSurface.screen) ? root.designId : "companion"
+          designId: root.designId
+          showInputField: root.showsInput(lockSurface.screen)
           revision: root.designsRevision
           userDesigns: root.userDesigns
           backgroundPath: root.backgroundPath

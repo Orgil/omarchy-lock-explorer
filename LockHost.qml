@@ -29,6 +29,7 @@ Item {
   property string failureMessage: ""
   property int failedAttempts: 0
   property bool inputEnabled: true
+  property bool showInputField: true
   property bool inputBlocked: false
   property string keyboardLayout: ""
   property int keyboardLayoutCount: 1
@@ -147,6 +148,7 @@ Item {
     it.failureMessage = Qt.binding(function() { return host.failureMessage })
     it.failedAttempts = Qt.binding(function() { return host.failedAttempts })
     it.inputEnabled = Qt.binding(function() { return host.inputEnabled })
+    if (it.showInputField !== undefined) it.showInputField = Qt.binding(function() { return host.showInputField })
     if (it.inputBlocked !== undefined) it.inputBlocked = Qt.binding(function() { return host.inputBlocked })
     if (it.keyboardLayout !== undefined) it.keyboardLayout = Qt.binding(function() { return host.keyboardLayout })
     if (it.keyboardLayoutCount !== undefined) it.keyboardLayoutCount = Qt.binding(function() { return host.keyboardLayoutCount })
